@@ -4,89 +4,102 @@ import { motion } from "framer-motion";
 
 const releases = [
   {
+    num: "01",
     title: "Diary of a Disastrous Dating Life",
     type: "Album",
     year: "2023",
-    gradient: "from-accent via-purple-800 to-bg",
     link: "https://music.apple.com/ae/album/1880918233",
   },
   {
+    num: "02",
     title: "Plane Jane",
     type: "Single",
     year: "2024",
-    gradient: "from-pink-600 via-rose-800 to-bg",
     link: "https://music.apple.com/ae/album/1880918233",
   },
   {
+    num: "03",
     title: "Everything Happens For A Reason",
     type: "Single",
     year: "2024",
-    gradient: "from-gold via-amber-800 to-bg",
     link: "https://music.apple.com/ae/album/1880918233",
   },
 ];
 
 export default function Discography() {
   return (
-    <section id="music" className="section-padding relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="music" className="relative section-padding overflow-hidden">
+      {/* Grain */}
+      <div className="grain-overlay" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section counter */}
         <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="section-counter"
+        >
+          <div className="section-counter-line" />
+          <span className="section-counter-text">003 / Discography</span>
+        </motion.div>
+
+        {/* Title — left aligned */}
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="font-serif italic text-5xl md:text-6xl lg:text-7xl mb-16 text-white"
         >
-          <p className="text-xs font-sans uppercase tracking-[0.4em] text-accent mb-4">
-            Discography
-          </p>
-          <h2 className="font-serif italic text-4xl md:text-5xl lg:text-6xl">
-            Music
-          </h2>
-        </motion.div>
+          Music
+        </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        {/* Editorial horizontal list */}
+        <div className="flex flex-col">
           {releases.map((release, i) => (
             <motion.a
               key={release.title}
               href={release.link}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.5 }}
-              className="group relative"
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="group relative flex items-center gap-6 md:gap-10 py-8 border-b border-white/5 hover:border-[#FF2D78]/30 transition-all duration-500"
             >
-              {/* Card */}
-              <div className="relative aspect-square rounded-xl overflow-hidden transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_40px_rgba(255,45,120,0.25)]">
-                {/* Gradient artwork */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${release.gradient}`} />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/20 to-transparent" />
+              {/* Hover accent line on left */}
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#FF2D78] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
 
-                {/* Pattern overlay */}
-                <div className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage: `radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                                      radial-gradient(circle at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%)`,
-                  }}
-                />
+              {/* Number */}
+              <span className="font-sans text-[13px] text-white/20 tracking-[0.15em] pl-4 md:pl-6 min-w-[40px]">
+                {release.num}
+              </span>
 
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-accent-soft/60 font-sans mb-1">
-                    LEXIE
-                  </span>
-                  <h3 className="font-serif italic text-xl md:text-2xl leading-tight text-white mb-3">
-                    {release.title}
-                  </h3>
-                  <div className="flex items-center gap-3">
-                    <span className="px-3 py-1 bg-accent/20 border border-accent/30 rounded-full text-[10px] uppercase tracking-[0.2em] text-accent font-sans">
-                      {release.type}
-                    </span>
-                    <span className="text-xs text-muted font-sans">{release.year}</span>
-                  </div>
-                </div>
-              </div>
+              {/* Title — big serif */}
+              <h3 className="font-serif italic text-2xl md:text-3xl lg:text-4xl text-white group-hover:text-[#FF2D78] transition-colors duration-300 flex-1">
+                {release.title}
+              </h3>
+
+              {/* Type badge — sharp rectangle */}
+              <span className="hidden sm:inline-block px-4 py-1.5 border border-white/10 text-[10px] uppercase tracking-[0.2em] font-sans text-white/40 group-hover:border-[#FF2D78]/40 group-hover:text-[#FF2D78]/70 transition-all duration-300">
+                {release.type}
+              </span>
+
+              {/* Year */}
+              <span className="hidden sm:inline-block font-sans text-[12px] text-white/25 tracking-wide min-w-[50px]">
+                {release.year}
+              </span>
+
+              {/* Arrow */}
+              <svg
+                className="w-5 h-5 text-white/20 group-hover:text-[#FF2D78] group-hover:translate-x-1 transition-all duration-300 mr-4 md:mr-6 flex-shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </motion.a>
           ))}
         </div>
