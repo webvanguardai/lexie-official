@@ -3,91 +3,62 @@
 import { motion } from "framer-motion";
 
 const shows = [
-  { date: "Jun 14", year: "2025", venue: "Dubai Opera", city: "Dubai, UAE" },
-  { date: "Jul 5", year: "2025", venue: "Coca Cola Arena", city: "Dubai, UAE" },
-  { date: "Aug 22", year: "2025", venue: "O2 Academy Brixton", city: "London, UK" },
-  { date: "Sep 10", year: "2025", venue: "Manchester Academy", city: "Manchester, UK" },
+  { date: "APR 15", venue: "Dubai Opera", city: "Dubai, UAE" },
+  { date: "MAY 22", venue: "Under the Bridge", city: "London, UK" },
+  { date: "JUN 08", venue: "Manchester Academy", city: "Manchester, UK" },
+  { date: "JUL 12", venue: "Expo City Festival", city: "Dubai, UAE" },
 ];
 
 export default function Shows() {
   return (
     <section id="shows" className="relative section-padding overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#FF2D78] mb-6"
-        >
-          Live
-        </motion.p>
-
+        {/* Header — bleeds right */}
         <motion.h2
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-serif italic text-5xl md:text-6xl lg:text-7xl mb-14 text-white"
+          transition={{ duration: 0.7 }}
+          className="font-serif italic text-white leading-[0.85] mb-16 -mr-[15vw] text-right"
+          style={{ fontSize: "clamp(5rem, 12vw, 12rem)" }}
         >
-          Shows
+          Live
         </motion.h2>
 
+        {/* Show list — setlist style */}
         <div className="flex flex-col">
           {shows.map((show, i) => (
             <motion.div
-              key={`${show.venue}-${show.date}`}
-              initial={{ opacity: 0, y: 10 }}
+              key={show.venue}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="group flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-8 py-7 border-b border-white/5 hover:border-white/15 transition-colors duration-300"
+              className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-6 py-6 border-b border-white/[0.08] first:border-t first:border-white/[0.08]"
             >
-              {/* Date */}
-              <div className="min-w-[100px]">
-                <p className="text-lg font-serif italic text-white">{show.date}</p>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/25 font-sans">
-                  {show.year}
-                </p>
-              </div>
-
-              {/* Venue + City */}
-              <div className="flex-1">
-                <h3 className="font-serif italic text-xl md:text-2xl text-white/90 group-hover:text-white transition-colors duration-300">
+              {/* Left: date + venue + city */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 flex-1">
+                <span className="font-mono text-[13px] text-white/50 min-w-[70px] tracking-wide">
+                  {show.date}
+                </span>
+                <span className="font-serif italic text-xl md:text-2xl text-white/90 group-hover:text-white transition-colors duration-300">
                   {show.venue}
-                </h3>
-                <p className="text-[12px] text-white/30 font-sans tracking-wide mt-0.5">
+                </span>
+                <span className="font-sans text-[12px] text-white/30 tracking-wide">
                   {show.city}
-                </p>
+                </span>
               </div>
 
-              {/* Tickets button */}
+              {/* Right: tickets */}
               <a
                 href="#contact"
-                className="px-6 py-2.5 border border-white/15 text-white/60 text-[11px] uppercase tracking-[0.15em] font-sans hover:bg-[#FF2D78] hover:border-[#FF2D78] hover:text-white transition-all duration-300 whitespace-nowrap"
+                className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/40 border border-white/15 px-5 py-2 hover:border-accent hover:text-accent transition-all duration-300 whitespace-nowrap"
               >
-                Tickets
+                Tickets →
               </a>
             </motion.div>
           ))}
         </div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="text-[12px] text-white/25 font-sans tracking-wide mt-10"
-        >
-          Follow{" "}
-          <a
-            href="https://instagram.com/lexieofficial"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#FF2D78]/70 hover:text-[#FF2D78] transition-colors"
-          >
-            @lexieofficial
-          </a>{" "}
-          for announcements
-        </motion.p>
       </div>
     </section>
   );

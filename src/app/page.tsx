@@ -14,8 +14,8 @@ export default function Home() {
       <Hero />
       <LatestRelease />
       <About />
-      <Discography />
       <Shows />
+      <Discography />
       <Contact />
       <Footer />
     </main>

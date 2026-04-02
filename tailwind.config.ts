@@ -11,10 +11,12 @@ const config: Config = {
       colors: {
         bg: "#0A0008",
         accent: "#FF2D78",
+        cream: "#F5F0E8",
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "serif"],
         sans: ["var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
     },
   },

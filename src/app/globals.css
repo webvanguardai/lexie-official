@@ -14,7 +14,7 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
 }
 ::-webkit-scrollbar-track {
   background: #0A0008;
@@ -32,4 +32,14 @@ body {
 /* ─── Form input style ─── */
 .input-raw {
   @apply w-full bg-transparent border-0 border-b border-white/15 py-4 text-sm font-sans text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D78] transition-colors duration-300;
+}
+
+/* ─── Label utility ─── */
+.label-tiny {
+  @apply font-sans text-[9px] uppercase tracking-[0.4em] text-white/40;
+}
+
+/* ─── Watermark number ─── */
+.watermark-number {
+  @apply absolute font-serif text-[200px] leading-none text-white/[0.04] pointer-events-none select-none;
 }

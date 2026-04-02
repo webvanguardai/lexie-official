@@ -1,52 +1,48 @@
 "use client";
 
-const socials = [
-  { label: "Instagram", href: "https://instagram.com/lexieofficial" },
-  { label: "Spotify", href: "https://open.spotify.com/artist/lexie" },
-  { label: "Apple Music", href: "https://music.apple.com/ae/album/1880918233" },
-  { label: "YouTube", href: "#" },
-];
-
 export default function Footer() {
   return (
-    <footer className="relative px-6 md:px-12 lg:px-20 py-14 border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
-          <div>
-            <p className="font-serif italic text-2xl text-white mb-1">LEXIE</p>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-white/25 font-sans">
-              Pop · Soul · Country · Dubai
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-6">
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] uppercase tracking-[0.15em] font-sans text-white/25 hover:text-white/60 transition-colors duration-300"
-              >
-                {social.label}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-          <p className="text-[10px] text-white/15 font-sans tracking-wide">
-            © 2025 LEXIE. All Rights Reserved.
-          </p>
-          <a
-            href="https://truelovecreative.es"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[10px] text-white/15 font-sans tracking-wide hover:text-white/30 transition-colors"
-          >
-            Website by True Love Creative
-          </a>
-        </div>
+    <footer className="relative px-6 md:px-12 lg:px-20 py-10 border-t border-white/[0.06]">
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] font-sans tracking-wide text-white/20">
+        <span>LEXIE © 2025</span>
+        <span>·</span>
+        <span>Dubai, UAE</span>
+        <span>·</span>
+        <a
+          href="https://instagram.com/lexieofficial"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white/50 transition-colors duration-300"
+        >
+          Instagram
+        </a>
+        <span>·</span>
+        <a
+          href="https://open.spotify.com/artist/lexie"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white/50 transition-colors duration-300"
+        >
+          Spotify
+        </a>
+        <span>·</span>
+        <a
+          href="https://music.apple.com/ae/album/1880918233"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white/50 transition-colors duration-300"
+        >
+          Apple Music
+        </a>
+        <span>·</span>
+        <a
+          href="https://truelovecreative.es"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white/50 transition-colors duration-300"
+        >
+          Website by True Love Creative
+        </a>
       </div>
     </footer>
   );

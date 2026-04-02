@@ -28,7 +28,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#0A0008]/95 backdrop-blur-md border-b border-white/5"
+            ? "bg-bg/95 backdrop-blur-md border-b border-white/5"
             : "bg-transparent"
         }`}
       >
@@ -42,19 +42,11 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-[11px] font-sans uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors duration-300"
+                className="text-[10px] font-sans uppercase tracking-[0.25em] text-white/40 hover:text-white transition-colors duration-300"
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="https://music.apple.com/ae/album/1880918233"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[11px] font-sans uppercase tracking-[0.2em] text-[#FF2D78] hover:text-white transition-colors duration-300 ml-2"
-            >
-              Stream →
-            </a>
           </div>
 
           <button
@@ -85,7 +77,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#0A0008] flex flex-col justify-center px-8"
+            className="fixed inset-0 z-40 bg-bg flex flex-col justify-center px-8"
           >
             <nav className="flex flex-col gap-2">
               {navLinks.map((link, i) => (
@@ -97,24 +89,12 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -30 }}
                   transition={{ delay: i * 0.07, duration: 0.4 }}
-                  className="font-serif italic text-5xl text-white/90 hover:text-[#FF2D78] transition-colors duration-300 py-3 border-b border-white/5"
+                  className="font-serif italic text-5xl text-white/90 hover:text-accent transition-colors duration-300 py-3 border-b border-white/5"
                 >
                   {link.label}
                 </motion.a>
               ))}
             </nav>
-
-            <motion.a
-              href="https://music.apple.com/ae/album/1880918233"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="mt-12 text-[11px] font-sans uppercase tracking-[0.25em] text-[#FF2D78]"
-            >
-              Stream Now →
-            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
