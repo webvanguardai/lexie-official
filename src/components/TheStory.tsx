@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function About() {
+export default function TheStory() {
   return (
-    <section id="about" className="relative overflow-hidden bg-bg">
+    <section id="story" className="relative overflow-hidden bg-[#0A0008]">
       <div className="flex flex-col lg:flex-row min-h-screen">
-        {/* LEFT — Photo (45%) */}
+        {/* LEFT — Photo */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -22,24 +22,27 @@ export default function About() {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 45vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-bg/30 hidden lg:block" />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/20 to-transparent lg:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0A0008]/30 hidden lg:block" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0008] via-[#0A0008]/20 to-transparent lg:hidden" />
 
           {/* Rotated label on photo */}
-          <span className="absolute top-8 left-6 lg:top-12 lg:left-8 font-sans text-[9px] uppercase tracking-[0.4em] text-white/50 lg:-rotate-90 lg:origin-top-left">
-            The Story
+          <span className="absolute top-12 left-8 font-sans text-[9px] uppercase tracking-[0.4em] text-white/50 origin-top-left hidden lg:block" style={{ transform: "rotate(-90deg) translateX(-100%)" }}>
+            I · The Story
           </span>
         </motion.div>
 
-        {/* RIGHT — Content (55%) */}
+        {/* RIGHT — Content */}
         <div className="relative flex-1 px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24 lg:py-32 flex flex-col justify-center">
-          {/* Watermark number */}
-          <span className="watermark-number -top-4 right-4 hidden lg:block">02</span>
+          {/* Watermark */}
+          <span className="absolute -top-4 right-4 font-serif text-[180px] leading-none text-white/[0.04] pointer-events-none select-none hidden lg:block">
+            01
+          </span>
 
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
             className="label-tiny text-accent mb-8"
           >
             The Artist
@@ -71,7 +74,7 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* Stats — single line with separators */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,14 +82,14 @@ export default function About() {
             transition={{ delay: 0.15, duration: 0.6 }}
           >
             <div className="w-full h-[1px] bg-white/10 mb-8" />
-            <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/35">
-              <span className="text-white/70">20K+</span>
+            <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/40">
+              20K+ Followers
               <span className="mx-3 text-white/15">·</span>
-              <span className="text-white/70">3 Continents</span>
+              3 Continents
               <span className="mx-3 text-white/15">·</span>
-              <span className="text-white/70">Arena Stages</span>
+              Arena Stages
               <span className="mx-3 text-white/15">·</span>
-              <span className="text-white/70">Independent</span>
+              100% Independent
             </p>
           </motion.div>
         </div>

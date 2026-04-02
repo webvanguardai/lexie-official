@@ -7,53 +7,45 @@ const releases = [
     title: "Everything Happens For A Reason",
     type: "Single",
     year: "2024",
-    gradient: "from-accent/60 via-accent/15 to-bg",
+    gradient: "linear-gradient(135deg, #FF2D78 0%, #6B0F2E 40%, #0A0008 100%)",
     large: true,
   },
   {
-    title: "Plane Jane",
+    title: "Still Here",
     type: "Single",
-    year: "2024",
-    gradient: "from-purple-800/50 via-purple-900/20 to-bg",
+    year: "2023",
+    gradient: "linear-gradient(135deg, #1a0a2e 0%, #0A0008 100%)",
     large: false,
   },
   {
-    title: "Diary of a Disastrous Dating Life",
-    type: "Album",
-    year: "2023",
-    gradient: "from-amber-700/40 via-amber-900/15 to-bg",
+    title: "Used To Be Mine",
+    type: "Single",
+    year: "2022",
+    gradient: "linear-gradient(135deg, #0a1a1a 0%, #0A0008 100%)",
     large: false,
   },
 ];
 
-export default function Discography() {
+export default function Music() {
   return (
     <section id="music" className="relative section-padding overflow-hidden">
-      {/* Watermark */}
-      <span className="watermark-number top-0 left-8 hidden lg:block">03</span>
-
       <div className="max-w-7xl mx-auto">
-        <motion.p
+        {/* Header */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="label-tiny text-accent mb-6"
-        >
-          Discography
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="font-serif italic text-5xl md:text-6xl lg:text-7xl mb-16 text-white"
+          className="flex items-center gap-4 mb-16"
         >
-          Music
-        </motion.h2>
+          <p className="font-sans text-[10px] uppercase tracking-[0.4em] text-white/40">
+            Music
+          </p>
+          <span className="flex-1 h-[1px] bg-accent/40" />
+        </motion.div>
 
-        {/* Asymmetric grid: 1 large (3 cols) + 2 small (1 col each) */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
+        {/* Asymmetric grid */}
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-4">
           {releases.map((release, i) => (
             <motion.div
               key={release.title}
@@ -61,15 +53,9 @@ export default function Discography() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className={`group relative aspect-square overflow-hidden cursor-pointer ${
-                release.large ? "md:col-span-3" : "md:col-span-1"
-              }`}
+              className="group relative aspect-square overflow-hidden cursor-pointer border border-transparent hover:border-accent/30 transition-colors duration-300"
+              style={{ background: release.gradient }}
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${release.gradient}`}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/60 to-transparent" />
-
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
                 <p className="label-tiny text-white/40 mb-2">

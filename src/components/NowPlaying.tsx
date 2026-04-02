@@ -2,26 +2,21 @@
 
 import { motion } from "framer-motion";
 
-export default function LatestRelease() {
+export default function NowPlaying() {
   return (
-    <section
-      id="release"
-      className="relative w-full overflow-hidden border-y border-white/[0.08] bg-white/[0.03]"
-    >
-      {/* Watermark */}
-      <span className="watermark-number -top-8 right-8 hidden lg:block">01</span>
-
+    <section className="relative w-full overflow-hidden border-y border-white/[0.08] bg-white/[0.03]">
       <div className="section-padding">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20">
-          {/* LEFT — 60% */}
-          <div className="flex-1 lg:w-[60%]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+          {/* LEFT — Text */}
+          <div className="flex-1">
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="label-tiny text-accent mb-6"
+              transition={{ duration: 0.7 }}
+              className="label-tiny text-white/40 mb-6"
             >
-              New Single
+              — Now Playing
             </motion.p>
 
             <motion.h2
@@ -29,39 +24,30 @@ export default function LatestRelease() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="font-serif italic leading-[0.95] mb-8 text-white"
-              style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}
+              className="font-serif italic leading-[0.95] mb-6 text-white"
+              style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}
             >
-              Everything
+              Everything Happens
               <br />
-              Happens For
-              <br />
-              A Reason
+              For A Reason
             </motion.h2>
 
-            <motion.div
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.15, duration: 0.6 }}
-              className="space-y-4 mb-10 max-w-lg"
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="font-sans text-[11px] uppercase tracking-[0.25em] text-white/30 mb-8"
             >
-              <p className="font-sans text-[14px] leading-[1.8] text-white/45">
-                A soulful anthem about trusting the journey, even when the path
-                feels uncertain. Written in Dubai, recorded between London and
-                the UAE.
-              </p>
-              <p className="font-sans text-[11px] uppercase tracking-[0.25em] text-white/20">
-                Single · 2024 · Pop / Soul
-              </p>
-            </motion.div>
+              Latest single · Available everywhere · 2024
+            </motion.p>
 
-            {/* Platform links as text */}
+            {/* Streaming links */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
               className="flex items-center gap-2 text-[12px] font-sans"
             >
               <a
@@ -86,7 +72,7 @@ export default function LatestRelease() {
                 href="#"
                 className="text-white/40 hover:text-accent transition-colors duration-300"
               >
-                YouTube
+                YouTube Music
               </a>
             </motion.div>
           </div>
@@ -97,11 +83,15 @@ export default function LatestRelease() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="w-full lg:w-[40%] flex-shrink-0"
+            className="w-full lg:w-[320px] xl:w-[380px] flex-shrink-0"
           >
-            <div className="relative w-full aspect-square max-w-[400px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/70 via-accent/15 to-bg" />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/50 to-transparent" />
+            <div
+              className="relative w-full aspect-square overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, #FF2D78 0%, #6B0F2E 40%, #0A0008 100%)",
+              }}
+            >
               <div className="absolute inset-0 flex flex-col justify-end p-8">
                 <p className="label-tiny text-white/50 mb-3">LEXIE · 2024</p>
                 <p className="font-serif italic text-2xl leading-tight text-white">
