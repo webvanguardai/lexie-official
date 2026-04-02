@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "LEXIE — Pop. Soul. Country. Dubai.",
   description:
-    "LEXIE — Dubai-based pop/soul/country singer-songwriter. Formerly Warner Music & Island Records. Now an independent headline artist.",
+    "LEXIE — Dubai-based pop/soul/country singer-songwriter. Formerly Warner Music & Island Records. Now independent.",
   openGraph: {
     title: "LEXIE — Pop. Soul. Country. Dubai.",
     description:

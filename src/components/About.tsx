@@ -3,13 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const credentials = [
-  "Warner Music",
-  "Island Records",
-  "Coca Cola Arena",
-  "Dubai Opera",
-];
-
 const stats = [
   { value: "20K+", label: "Followers" },
   { value: "3", label: "Continents" },
@@ -20,14 +13,8 @@ const stats = [
 export default function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-[#0A0008]">
-      {/* Grain */}
-      <div className="grain-overlay" />
-
-      {/* Aggressive glow */}
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#FF2D78]/8 rounded-full blur-[250px] pointer-events-none" />
-
       <div className="flex flex-col lg:flex-row min-h-screen">
-        {/* LEFT — Photo bleeds to edge */}
+        {/* LEFT — Photo */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -42,44 +29,42 @@ export default function About() {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 45vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0A0008]/40 hidden lg:block" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0008] via-[#0A0008]/30 to-transparent lg:hidden" />
-
-          {/* Vertical section number on photo */}
-          <div className="absolute top-8 left-6 flex items-center gap-3 z-10">
-            <div className="w-8 h-[2px] bg-[#FF2D78]" />
-            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/60">
-              004 / The Story
-            </span>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0A0008]/30 hidden lg:block" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0008] via-[#0A0008]/20 to-transparent lg:hidden" />
         </motion.div>
 
         {/* RIGHT — Content */}
-        <div className="flex-1 px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24 lg:py-32 relative z-10 flex flex-col justify-center">
-          {/* Pull quote — HUGE, magazine cover style */}
-          <motion.blockquote
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        <div className="flex-1 px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24 lg:py-32 flex flex-col justify-center">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="mb-12"
+            className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#FF2D78] mb-6"
           >
-            <p
-              className="font-serif italic text-white/90 leading-[1.1]"
-              style={{ fontSize: "clamp(2rem, 4vw, 4rem)" }}
-            >
-              &ldquo;Airing all the dirty laundry via song.&rdquo;
-            </p>
-            <div className="w-16 h-[2px] bg-[#FF2D78] mt-6" />
-          </motion.blockquote>
+            The Story
+          </motion.p>
 
-          {/* Bio text — left-aligned, editorial line spacing */}
-          <motion.div
+          <motion.blockquote
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="space-y-5 text-white/60 font-sans leading-[1.8] text-[15px] mb-12 max-w-xl"
+            transition={{ duration: 0.7 }}
+            className="mb-10"
+          >
+            <p
+              className="font-serif italic text-white/90 leading-[1.1]"
+              style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.5rem)" }}
+            >
+              &ldquo;Airing all the dirty laundry via song.&rdquo;
+            </p>
+          </motion.blockquote>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15, duration: 0.6 }}
+            className="space-y-5 text-white/50 font-sans leading-[1.8] text-[15px] mb-14 max-w-xl"
           >
             <p>
               LEXIE is a pop singer-songwriter with a pinch of soul and a touch of country,
@@ -97,40 +82,21 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* Credential badges — sharp rectangles with pink border */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-wrap gap-3 mb-12"
-          >
-            {credentials.map((cred) => (
-              <span key={cred} className="badge-sharp">
-                {cred}
-              </span>
-            ))}
-          </motion.div>
-
-          {/* Accent rule before stats */}
-          <div className="w-full h-[1px] bg-[#FF2D78]/15 mb-12" />
-
-          {/* Stats — bigger, bolder, accent underline */}
+          {/* Stats */}
+          <div className="w-full h-[1px] bg-white/10 mb-10" />
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.4 + i * 0.1 }}
-                className="text-left"
+                transition={{ delay: 0.2 + i * 0.08 }}
               >
                 <p className="text-3xl md:text-4xl font-serif italic text-white mb-1">
                   {stat.value}
                 </p>
-                <div className="w-8 h-[2px] bg-[#FF2D78] mb-2" />
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-sans">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/35 font-sans">
                   {stat.label}
                 </p>
               </motion.div>

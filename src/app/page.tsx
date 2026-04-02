@@ -1,10 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import LatestRelease from "@/components/LatestRelease";
-import Discography from "@/components/Discography";
 import About from "@/components/About";
 import Shows from "@/components/Shows";
-import Press from "@/components/Press";
+import Discography from "@/components/Discography";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -14,10 +13,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <LatestRelease />
-      <Discography />
       <About />
+      <Discography />
       <Shows />
-      <Press />
       <Contact />
       <Footer />
     </main>

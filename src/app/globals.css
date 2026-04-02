@@ -14,56 +14,14 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
   background: #0A0008;
 }
 ::-webkit-scrollbar-thumb {
   background: #FF2D78;
-  border-radius: 3px;
-}
-
-/* ─── Pink glow utilities ─── */
-.glow-pink {
-  box-shadow: 0 0 80px rgba(255, 45, 120, 0.35), 0 0 160px rgba(255, 45, 120, 0.15);
-}
-
-.glow-pink-sm {
-  box-shadow: 0 0 40px rgba(255, 45, 120, 0.25), 0 0 80px rgba(255, 45, 120, 0.1);
-}
-
-.glow-pink-aggressive {
-  box-shadow: 0 0 100px rgba(255, 45, 120, 0.4), 0 0 200px rgba(255, 45, 120, 0.2), 0 0 300px rgba(255, 45, 120, 0.1);
-}
-
-/* ─── Text gradients ─── */
-.text-gradient-pink-gold {
-  background: linear-gradient(135deg, #FF2D78, #D4AF37);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-pink-white {
-  background: linear-gradient(135deg, #ffffff 0%, #FFB3D1 50%, #FF2D78 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ─── Vinyl spin ─── */
-@keyframes vinyl-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.vinyl-spin {
-  animation: vinyl-spin 8s linear infinite;
-}
-
-.vinyl-spin-slow {
-  animation: vinyl-spin 20s linear infinite;
+  border-radius: 2px;
 }
 
 /* ─── Section spacing ─── */
@@ -71,57 +29,7 @@ body {
   @apply py-24 md:py-32 px-6 md:px-12 lg:px-20;
 }
 
-/* ─── Section counter label ─── */
-.section-counter {
-  @apply flex items-center gap-3 mb-8;
-}
-
-.section-counter-line {
-  @apply w-8 h-[2px] bg-[#FF2D78] flex-shrink-0;
-}
-
-.section-counter-text {
-  @apply font-sans text-[11px] uppercase tracking-[0.35em] text-[#FF2D78];
-}
-
-/* ─── Clip-path CTA (angled corner) ─── */
-.cta-sharp {
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-}
-
-.cta-sharp-lg {
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
-}
-
-/* ─── Grain texture overlay ─── */
-.grain-overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-}
-
-/* ─── Horizontal accent rule ─── */
-.accent-rule {
-  @apply w-full h-[1px] bg-[#FF2D78]/20;
-}
-
-/* ─── Sharp badge (not rounded) ─── */
-.badge-sharp {
-  @apply px-4 py-2 border border-[#FF2D78]/40 text-[11px] uppercase tracking-[0.2em] font-sans text-[#FF2D78]/80;
-}
-
-/* ─── Form input raw style ─── */
+/* ─── Form input style ─── */
 .input-raw {
-  @apply w-full bg-transparent border-0 border-b border-white/20 py-4 text-sm font-sans text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D78] transition-colors duration-300;
-}
-
-/* ─── Light leak ─── */
-.light-leak {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
+  @apply w-full bg-transparent border-0 border-b border-white/15 py-4 text-sm font-sans text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D78] transition-colors duration-300;
 }
